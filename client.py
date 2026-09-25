@@ -8,16 +8,16 @@ import os
 load_dotenv()
 
 llm = ChatGroq(model='openai/gpt-oss-20b')
-
+mcp_token= os.getenv("MCP_API_KEY")
 SERVERS = {
     "expense-tracker-shubham": {
         "transport": "streamable_http",
         "url": "https://squealing-emerald-cardinal.fastmcp.app/mcp",
         # Uncomment and add your token here if you are still getting the 401 error!
         "headers": {
-             "Authorization": f"Bearer {"fmcp_Ayxpl1x4VEwLEvwrU-rJ7Fhrsz8tLzLsqtf3UJpnc2Q"}"
+             "Authorization": f"Bearer {mcp_token}"
          }
-    }
+    }git commit --amend --no-edit
 }
 
 async def main():
