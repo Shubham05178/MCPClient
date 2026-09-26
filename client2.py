@@ -12,7 +12,10 @@ from langchain_core.messages import HumanMessage, AIMessage, ToolMessage, System
 # ─────────────────────────────
 # MCP servers: local math via uv + fastmcp
 # ─────────────────────────────
-mcp_token= os.getenv("MCP_API_KEY")
+
+load_dotenv()
+mcp_token= "fmcp_Ayxpl1x4VEwLEvwrU-rJ7Fhrsz8tLzLsqtf3UJpnc2Q"
+
 SERVERS = {
     "expense-tracker-shubham": {
         "transport": "streamable_http",
@@ -34,12 +37,11 @@ SYSTEM_PROMPT = (
 st.set_page_config(page_title="MCP Chat", page_icon="🧰", layout="centered")
 st.title("🧰 MCP Chat")
 
-load_dotenv()
 
 # One-time init
 if "initialized" not in st.session_state:
     # 1) LLM
-    st.session_state.llm = ChatGroq(model="openai/gpt-oss-20b")
+    st.session_state.llm = ChatGroq(model="openai/gpt-oss-20b",api_key="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")
 
     # 2) MCP tools
     st.session_state.client = MultiServerMCPClient(SERVERS)
